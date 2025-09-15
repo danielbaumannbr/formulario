@@ -76,6 +76,19 @@
             min-height: 30px;
             /* Ensure space for the result */
         }
+        
+        /* New CSS for the animation */
+        .jiggle {
+            animation: jiggle 0.5s ease-in-out;
+        }
+
+        @keyframes jiggle {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
     </style>
 </head>
 
@@ -97,36 +110,16 @@
     </div>
     <script>
         function calcular(operacao) {
-            //Pegar os valores do formulário 
+            // Pegar os valores do formulário
             let num1 = parseFloat(document.getElementById('num1').value);
             let num2 = parseFloat(document.getElementById('num2').value);
-            if (isNaN(num1) || isNaN(num2)) {
-                resultado = "Insira um número."
-            } else {
-                //Realiza os calculos
-                switch (operacao) {
-                    case 'somar':
-                        resultado = num1 + num2;
-                        break;
-                    case 'subtrair':
-                        resultado = num1 - num2;
-                        break;
-                    case 'multiplicar':
-                        resultado = num1 * num2;
-                        break;
-                    case 'dividir':
-                        if (num2 != 0) {
-                            resultado = num1 / num2;
-                        } else {
-                            resultado = "Não é possivel dividir um número por ZERO"
-                        }
 
-                        break;
-                }
-            }
-            document.getElementById('resultado').textContent = resultado;
-        }
-    </script>
-</body>
+            // Variável para armazenar o resultado
+            let resultado;
 
-</html>
+            // Realiza os calculos
+            switch (operacao) {
+                case 'somar':
+                    resultado = num1 + num2;
+                    break;
+                case '
